@@ -28,11 +28,9 @@
     overflow-x: hidden;
   }
 
-  /* ── PAGE SYSTEM ── */
   .page { display: none; min-height: 100vh; padding-top: 80px; background: var(--ivory); }
   .page.active { display: block; }
 
-  /* ── NAV ── */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     background: rgba(254,250,224,0.96);
@@ -58,345 +56,179 @@
   .nav-tabs li { display: flex; align-items: center; }
   .nav-tabs a {
     display: flex; align-items: center;
-    padding: 0 1.1rem; height: 100%;
+    padding: 0 1.0rem; height: 100%;
     text-decoration: none; color: var(--muted);
-    font-size: 0.81rem; font-weight: 400; letter-spacing: 0.07em;
+    font-size: 0.79rem; font-weight: 400; letter-spacing: 0.07em;
     text-transform: uppercase;
     border-bottom: 3px solid transparent;
     transition: color 0.2s, border-color 0.2s;
     cursor: pointer; white-space: nowrap;
   }
   .nav-tabs a:hover { color: var(--warm); }
-  .nav-tabs a.active {
-    color: var(--tan);
-    border-bottom-color: var(--tan);
-    font-weight: 500;
-  }
+  .nav-tabs a.active { color: var(--tan); border-bottom-color: var(--tan); font-weight: 500; }
   .nav-donate {
     background: var(--tan); color: var(--ivory) !important;
-    border-radius: 2rem; padding: 0 1.4rem !important;
-    height: 38px !important; margin: auto 0 auto 0.8rem;
+    border-radius: 2rem; padding: 0 1.2rem !important;
+    height: 38px !important; margin: auto 0 auto 0.6rem;
     border-bottom: none !important;
     transition: background 0.2s, transform 0.2s !important;
   }
   .nav-donate:hover { background: var(--warm) !important; transform: translateY(-1px); }
 
-  /* ── HAMBURGER (mobile) ── */
-  .hamburger {
-    display: none; flex-direction: column; gap: 5px;
-    cursor: pointer; padding: 4px;
-  }
-  .hamburger span {
-    display: block; width: 24px; height: 2px;
-    background: var(--tan); border-radius: 2px;
-    transition: transform 0.3s, opacity 0.3s;
-  }
-  .mobile-menu {
-    display: none; flex-direction: column;
-    background: var(--ivory); border-top: 1px solid var(--peach);
-    padding: 1rem 5vw 1.5rem;
-  }
-  .mobile-menu a {
-    display: block; padding: 0.7rem 0;
-    text-decoration: none; color: var(--muted);
-    font-size: 0.9rem; letter-spacing: 0.05em; text-transform: uppercase;
-    border-bottom: 1px solid rgba(212,163,115,0.3);
-    cursor: pointer;
-  }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--tan); border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
+  .mobile-menu { display: none; flex-direction: column; background: var(--ivory); border-top: 1px solid var(--peach); padding: 1rem 5vw 1.5rem; }
+  .mobile-menu a { display: block; padding: 0.7rem 0; text-decoration: none; color: var(--muted); font-size: 0.9rem; letter-spacing: 0.05em; text-transform: uppercase; border-bottom: 1px solid rgba(212,163,115,0.3); cursor: pointer; }
   .mobile-menu a:last-child { border-bottom: none; }
   .mobile-menu.open { display: flex; }
-  @media(max-width:700px) {
-    .nav-tabs { display: none; }
-    .hamburger { display: flex; }
-  }
+  @media(max-width:780px) { .nav-tabs { display: none; } .hamburger { display: flex; } }
 
-  /* ── SHARED ── */
   .section-pad { padding: 5rem 6vw; }
-  .section-label {
-    font-size: 0.75rem; font-weight: 500; letter-spacing: 0.14em;
-    text-transform: uppercase; color: var(--tan); margin-bottom: 0.8rem;
-  }
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2rem, 4vw, 3rem);
-    color: var(--text); margin-bottom: 1.2rem; line-height: 1.2;
-  }
+  .section-label { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--tan); margin-bottom: 0.8rem; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3rem); color: var(--text); margin-bottom: 1.2rem; line-height: 1.2; }
   .section-title em { font-style: italic; color: var(--tan); }
   .section-body { font-size: 1rem; line-height: 1.9; color: var(--muted); max-width: 700px; }
   .divider { width: 56px; height: 3px; background: var(--tan); border-radius: 2px; margin: 1.4rem 0 2rem; }
-  .btn {
-    display: inline-block; padding: 0.85rem 2.2rem;
-    border-radius: 3rem; font-size: 0.9rem; font-weight: 500;
-    text-decoration: none; cursor: pointer; border: none;
-    transition: transform 0.25s, box-shadow 0.25s, background 0.2s;
-    font-family: 'DM Sans', sans-serif; position: relative; overflow: hidden;
-  }
+  .btn { display: inline-block; padding: 0.85rem 2.2rem; border-radius: 3rem; font-size: 0.9rem; font-weight: 500; text-decoration: none; cursor: pointer; border: none; transition: transform 0.25s, box-shadow 0.25s, background 0.2s; font-family: 'DM Sans', sans-serif; position: relative; overflow: hidden; }
   .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(212,163,115,0.35); }
   .btn-primary { background: var(--tan); color: var(--ivory); }
   .btn-primary:hover { background: var(--warm); }
   .btn-outline { background: transparent; color: var(--brown); border: 1.5px solid var(--tan); }
   .btn-row { display: flex; gap: 1rem; flex-wrap: wrap; }
 
-  /* ── SCROLL REVEAL ── */
-  .reveal {
-    opacity: 0; transform: translateY(30px);
-    transition: opacity 0.65s ease, transform 0.65s ease;
-  }
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.65s ease, transform 0.65s ease; }
   .reveal.d1 { transition-delay: 0.1s; }
   .reveal.d2 { transition-delay: 0.2s; }
   .reveal.d3 { transition-delay: 0.3s; }
   .reveal.d4 { transition-delay: 0.4s; }
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
-  /* ══════════════════════════════
-     HOME PAGE
-  ══════════════════════════════ */
-  .hero {
-    min-height: calc(100vh - 72px);
-    display: grid; place-items: center;
-    text-align: center; padding: 5rem 6vw 4rem;
-    position: relative; overflow: hidden;
-  }
-  .hero-bg {
-    position: absolute; inset: 0; z-index: 0;
-    background:
-      radial-gradient(ellipse at 15% 65%, rgba(204,213,174,0.55) 0%, transparent 55%),
-      radial-gradient(ellipse at 85% 25%, rgba(212,163,115,0.35) 0%, transparent 50%),
-      radial-gradient(ellipse at 50% 90%, rgba(250,237,205,0.6) 0%, transparent 50%),
-      var(--ivory);
-    will-change: transform;
-  }
-  .hero-dots {
-    position: absolute; inset: 0; z-index: 0; pointer-events: none;
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='30' cy='30' r='1.5' fill='%23CCD5AE' fill-opacity='0.25'/%3E%3C/svg%3E");
-  }
-  .orb {
-    position: absolute; border-radius: 50%; pointer-events: none;
-    will-change: transform; z-index: 0;
-  }
+  /* HOME */
+  .hero { min-height: calc(100vh - 72px); display: grid; place-items: center; text-align: center; padding: 5rem 6vw 4rem; position: relative; overflow: hidden; }
+  .hero-bg { position: absolute; inset: 0; z-index: 0; background: radial-gradient(ellipse at 15% 65%, rgba(204,213,174,0.55) 0%, transparent 55%), radial-gradient(ellipse at 85% 25%, rgba(212,163,115,0.35) 0%, transparent 50%), radial-gradient(ellipse at 50% 90%, rgba(250,237,205,0.6) 0%, transparent 50%), var(--ivory); will-change: transform; }
+  .hero-dots { position: absolute; inset: 0; z-index: 0; pointer-events: none; background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='30' cy='30' r='1.5' fill='%23CCD5AE' fill-opacity='0.25'/%3E%3C/svg%3E"); }
+  .orb { position: absolute; border-radius: 50%; pointer-events: none; will-change: transform; z-index: 0; }
   .orb-1 { width:380px;height:380px; background:radial-gradient(circle,rgba(204,213,174,0.45),transparent 70%); top:10%;left:-8%; animation:float1 8s ease-in-out infinite; }
   .orb-2 { width:300px;height:300px; background:radial-gradient(circle,rgba(212,163,115,0.3),transparent 70%); top:20%;right:-5%; animation:float2 10s ease-in-out infinite; }
   .orb-3 { width:200px;height:200px; background:radial-gradient(circle,rgba(250,237,205,0.6),transparent 70%); bottom:15%;left:35%; animation:float1 12s ease-in-out infinite reverse; }
-  @keyframes float1 {
-    0%,100%{transform:translateY(0) translateX(0);}
-    33%{transform:translateY(-22px) translateX(10px);}
-    66%{transform:translateY(12px) translateX(-8px);}
-  }
-  @keyframes float2 {
-    0%,100%{transform:translateY(0) translateX(0);}
-    40%{transform:translateY(18px) translateX(-12px);}
-    70%{transform:translateY(-10px) translateX(8px);}
-  }
+  @keyframes float1 { 0%,100%{transform:translateY(0) translateX(0);} 33%{transform:translateY(-22px) translateX(10px);} 66%{transform:translateY(12px) translateX(-8px);} }
+  @keyframes float2 { 0%,100%{transform:translateY(0) translateX(0);} 40%{transform:translateY(18px) translateX(-12px);} 70%{transform:translateY(-10px) translateX(8px);} }
   .hero-content { position: relative; z-index: 1; }
-  .hero-tag {
-    display: inline-block;
-    background: var(--sage); color: var(--tan);
-    font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em;
-    text-transform: uppercase; padding: 0.38rem 1.2rem;
-    border-radius: 2rem; margin-bottom: 1.8rem;
-  }
-  .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(3rem, 8vw, 6.5rem);
-    line-height: 1.06; color: var(--text); margin-bottom: 1.3rem;
-  }
+  .hero-tag { display: inline-block; background: var(--sage); color: var(--tan); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.38rem 1.2rem; border-radius: 2rem; margin-bottom: 1.8rem; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 8vw, 6.5rem); line-height: 1.06; color: var(--text); margin-bottom: 1.3rem; }
   .hero h1 em { font-style: italic; color: var(--tan); }
-  .hero-sub {
-    font-size: clamp(1rem, 2vw, 1.15rem); color: var(--muted);
-    max-width: 620px; margin: 0 auto 1rem; line-height: 1.85;
-  }
-  .hero-location {
-    display: inline-flex; align-items: center; gap: 0.4rem;
-    font-size: 0.83rem; color: var(--tan); opacity: 0.8; margin-bottom: 2.5rem;
-  }
+  .hero-sub { font-size: clamp(1rem, 2vw, 1.15rem); color: var(--muted); max-width: 620px; margin: 0 auto 1rem; line-height: 1.85; }
+  .hero-location { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.83rem; color: var(--tan); opacity: 0.8; margin-bottom: 2.5rem; }
   @keyframes fadeUp { from{opacity:0;transform:translateY(32px);}to{opacity:1;transform:translateY(0);} }
-  .hero-tag    { animation: fadeUp 0.7s 0.10s ease both; }
-  .hero h1     { animation: fadeUp 0.7s 0.25s ease both; }
-  .hero-sub    { animation: fadeUp 0.7s 0.40s ease both; }
+  .hero-tag { animation: fadeUp 0.7s 0.10s ease both; }
+  .hero h1 { animation: fadeUp 0.7s 0.25s ease both; }
+  .hero-sub { animation: fadeUp 0.7s 0.40s ease both; }
   .hero-location { animation: fadeUp 0.6s 0.52s ease both; }
   .hero .btn-row { animation: fadeUp 0.7s 0.62s ease both; }
 
   .home-stats { background: var(--peach); padding: 4rem 6vw; }
-  .home-stats-grid {
-    display: grid; grid-template-columns: repeat(auto-fit,minmax(160px,1fr));
-    gap: 2rem; margin-top: 2.5rem;
-  }
-  .stat-card {
-    background: var(--ivory); border-radius: 1.4rem;
-    padding: 1.8rem 1.2rem; text-align: center;
-    border: 1px solid rgba(212,163,115,0.25);
-    box-shadow: 0 4px 20px rgba(212,163,115,0.15);
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
+  .home-stats-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(160px,1fr)); gap: 2rem; margin-top: 2.5rem; }
+  .stat-card { background: var(--ivory); border-radius: 1.4rem; padding: 1.8rem 1.2rem; text-align: center; border: 1px solid rgba(212,163,115,0.25); box-shadow: 0 4px 20px rgba(212,163,115,0.15); transition: transform 0.3s, box-shadow 0.3s; }
   .stat-card:hover { transform: translateY(-6px) scale(1.02); box-shadow: 0 16px 40px rgba(212,163,115,0.28); }
-  .stat-num {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.2rem,4vw,3rem); color: var(--tan); line-height: 1;
-  }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem,4vw,3rem); color: var(--tan); line-height: 1; }
   .stat-label { font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-top:0.6rem; }
 
-  .home-mission {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 4rem; align-items: center; padding: 5rem 6vw;
-  }
+  .home-mission { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; padding: 5rem 6vw; }
   @media(max-width:768px){.home-mission{grid-template-columns:1fr;}}
-  .home-mission-visual {
-    background: linear-gradient(135deg,var(--sage) 0%,var(--cream2) 50%,var(--peach) 100%);
-    border-radius: 2rem; min-height: 380px;
-    display: flex; align-items: center; justify-content: center;
-    border: 1px solid rgba(212,163,115,0.2); overflow: hidden;
-    transition: transform 0.4s, box-shadow 0.4s;
-  }
+  .home-mission-visual { background: linear-gradient(135deg,var(--sage) 0%,var(--cream2) 50%,var(--peach) 100%); border-radius: 2rem; min-height: 380px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(212,163,115,0.2); overflow: hidden; transition: transform 0.4s, box-shadow 0.4s; }
   .home-mission-visual:hover { transform: scale(1.02); box-shadow: 0 20px 50px rgba(212,163,115,0.25); }
-  .mission-visual-text {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(3rem,6vw,5rem); font-style: italic;
-    color: var(--tan); opacity: 0.35; text-align: center;
-    padding: 2rem; user-select: none; animation: float1 9s ease-in-out infinite;
-  }
-  .mission-quote {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2rem; font-style: italic; color: var(--tan);
-    line-height: 1.7; border-left: 3px solid var(--tan);
-    padding-left: 1.4rem; margin: 1.8rem 0;
-  }
+  .mission-visual-text { font-family: 'Playfair Display', serif; font-size: clamp(3rem,6vw,5rem); font-style: italic; color: var(--tan); opacity: 0.35; text-align: center; padding: 2rem; user-select: none; animation: float1 9s ease-in-out infinite; }
+  .mission-quote { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-style: italic; color: var(--tan); line-height: 1.7; border-left: 3px solid var(--tan); padding-left: 1.4rem; margin: 1.8rem 0; }
 
-  .about-hero {
-    background: linear-gradient(135deg,var(--sage) 0%,var(--cream2) 60%,var(--peach) 100%);
-    padding: 5rem 6vw 4rem; text-align: center;
-    border-bottom: 1px solid rgba(212,163,115,0.2);
-  }
-  .team-grid {
-    display: grid; grid-template-columns: repeat(auto-fit,minmax(270px,1fr));
-    gap: 2rem; margin-top: 3rem;
-  }
-  .team-card {
-    background: var(--ivory); border-radius: 1.4rem; padding: 2.2rem;
-    position: relative; overflow: hidden;
-    border: 1px solid rgba(212,163,115,0.2);
-    box-shadow: 0 4px 20px rgba(212,163,115,0.15);
-    transition: transform 0.35s cubic-bezier(.34,1.56,.64,1), box-shadow 0.35s;
-  }
+  /* ABOUT */
+  .about-hero { background: linear-gradient(135deg,var(--sage) 0%,var(--cream2) 60%,var(--peach) 100%); padding: 5rem 6vw 4rem; text-align: center; border-bottom: 1px solid rgba(212,163,115,0.2); }
+  .team-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(270px,1fr)); gap: 2rem; margin-top: 3rem; }
+  .team-card { background: var(--ivory); border-radius: 1.4rem; padding: 2.2rem; position: relative; overflow: hidden; border: 1px solid rgba(212,163,115,0.2); box-shadow: 0 4px 20px rgba(212,163,115,0.15); transition: transform 0.35s cubic-bezier(.34,1.56,.64,1), box-shadow 0.35s; }
   .team-card:hover { transform: translateY(-8px) scale(1.015); box-shadow: 0 18px 44px rgba(212,163,115,0.28); }
-  .team-card::before {
-    content:'';position:absolute;top:-28px;right:-28px;
-    width:110px;height:110px;background:var(--peach);opacity:0.6;border-radius:50%;
-    transition:transform 0.4s;
-  }
+  .team-card::before { content:'';position:absolute;top:-28px;right:-28px;width:110px;height:110px;background:var(--peach);opacity:0.6;border-radius:50%;transition:transform 0.4s; }
   .team-card:hover::before { transform: scale(1.3); }
-  .team-avatar {
-    width:64px;height:64px;border-radius:50%;
-    background: linear-gradient(135deg,var(--sage),var(--tan));
-    display:flex;align-items:center;justify-content:center;
-    font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--ivory);
-    margin-bottom:1.2rem;position:relative;z-index:1;
-    transition: transform 0.3s;
-  }
+  .team-avatar { width:64px;height:64px;border-radius:50%;background: linear-gradient(135deg,var(--sage),var(--tan));display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--ivory);margin-bottom:1.2rem;position:relative;z-index:1;transition: transform 0.3s; }
   .team-card:hover .team-avatar { transform: scale(1.1) rotate(-3deg); }
   .team-name { font-family:'Playfair Display',serif;font-size:1.2rem;margin-bottom:0.25rem;color:var(--text); }
   .team-role { font-size:0.75rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--tan);margin-bottom:1rem; }
   .team-bio { font-size:0.88rem;color:var(--muted);line-height:1.8; }
+  .team-email { display:inline-flex;align-items:center;gap:0.4rem;margin-top:1rem;font-size:0.8rem;color:var(--tan);text-decoration:none;font-weight:500;transition:color 0.2s; }
+  .team-email:hover { color: var(--warm); }
 
-  .programs-hero {
-    background: var(--peach); padding: 5rem 6vw 4rem;
-    border-bottom: 1px solid rgba(212,163,115,0.2);
-  }
-  .programs-grid {
-    display: grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-    gap: 2rem; margin-top: 3rem;
-  }
-  .program-card {
-    background: var(--ivory); border-radius: 1.4rem; padding: 2rem;
-    border: 1px solid rgba(212,163,115,0.2);
-    box-shadow: 0 4px 20px rgba(212,163,115,0.15);
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
+  /* PROGRAMS */
+  .programs-hero { background: var(--peach); padding: 5rem 6vw 4rem; border-bottom: 1px solid rgba(212,163,115,0.2); }
+  .programs-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap: 2rem; margin-top: 3rem; }
+  .program-card { background: var(--ivory); border-radius: 1.4rem; padding: 2rem; border: 1px solid rgba(212,163,115,0.2); box-shadow: 0 4px 20px rgba(212,163,115,0.15); transition: transform 0.3s, box-shadow 0.3s; }
   .program-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(212,163,115,0.25); }
   .program-icon { font-size: 2.2rem; margin-bottom: 1rem; display: block; }
   .program-title { font-family:'Playfair Display',serif;font-size:1.3rem;margin-bottom:0.6rem;color:var(--text); }
   .program-desc { font-size:0.9rem;color:var(--muted);line-height:1.8; }
 
-  .events-hero {
-    background: var(--cream2); padding: 5rem 6vw 4rem;
-    border-bottom: 1px solid rgba(212,163,115,0.2);
-  }
-  .events-grid {
-    display: grid; grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
-    gap: 1.8rem; margin-top: 3rem;
-  }
-  .event-card {
-    background: var(--ivory); border-radius: 1.2rem; padding: 2rem;
-    border: 1px solid rgba(212,163,115,0.25);
-    transition: transform 0.3s cubic-bezier(.34,1.56,.64,1), box-shadow 0.3s;
-  }
+  /* EVENTS */
+  .events-hero { background: var(--cream2); padding: 5rem 6vw 4rem; border-bottom: 1px solid rgba(212,163,115,0.2); }
+  .events-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); gap: 1.8rem; margin-top: 3rem; }
+  .event-card { background: var(--ivory); border-radius: 1.2rem; padding: 2rem; border: 1px solid rgba(212,163,115,0.25); transition: transform 0.3s cubic-bezier(.34,1.56,.64,1), box-shadow 0.3s; }
   .event-card:hover { transform: translateY(-8px) scale(1.01); box-shadow: 0 16px 40px rgba(212,163,115,0.25); }
-  .event-badge {
-    display: inline-block; background: var(--sage); color: var(--tan);
-    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.09em;
-    text-transform: uppercase; padding: 0.28rem 0.8rem; border-radius: 2rem;
-    margin-bottom: 1rem;
-  }
+  .event-badge { display: inline-block; background: var(--sage); color: var(--tan); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase; padding: 0.28rem 0.8rem; border-radius: 2rem; margin-bottom: 1rem; }
   .event-date { font-size:0.78rem;font-weight:500;letter-spacing:0.09em;text-transform:uppercase;color:var(--tan);margin-bottom:0.5rem; }
   .event-title { font-family:'Playfair Display',serif;font-size:1.25rem;margin-bottom:0.6rem;color:var(--text); }
   .event-detail { font-size:0.88rem;color:var(--muted);line-height:1.7; }
 
-  .involved-hero {
-    background: linear-gradient(135deg,var(--peach) 0%,var(--cream2) 100%);
-    padding: 5rem 6vw 4rem; text-align: center;
-    border-bottom: 1px solid rgba(212,163,115,0.2);
-  }
-  .involved-grid {
-    display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
-    gap: 2rem; margin-top: 3rem;
-  }
-  .involved-card {
-    background: var(--ivory); border-radius: 1.4rem; padding: 2.2rem;
-    border: 1px solid rgba(212,163,115,0.2);
-    box-shadow: 0 4px 20px rgba(212,163,115,0.15);
-    text-align: center; transition: transform 0.3s, box-shadow 0.3s;
-  }
+  /* PHOTOS */
+  .photos-hero { background: linear-gradient(135deg,var(--cream2) 0%,var(--peach) 100%); padding: 5rem 6vw 4rem; border-bottom: 1px solid rgba(212,163,115,0.2); }
+  .photos-upload-bar { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; padding: 1.5rem; background: var(--ivory); border-radius: 1rem; border: 1.5px dashed rgba(212,163,115,0.5); }
+  .photos-upload-bar p { font-size:0.9rem;color:var(--muted);flex:1;min-width:200px; }
+  .photo-gallery { padding: 3rem 6vw 5rem; columns: 3 280px; column-gap: 1.4rem; }
+  .photo-item { break-inside: avoid; margin-bottom: 1.4rem; border-radius: 1rem; overflow: hidden; border: 1px solid rgba(212,163,115,0.2); box-shadow: 0 4px 18px rgba(212,163,115,0.13); transition: transform 0.3s, box-shadow 0.3s; cursor: pointer; }
+  .photo-item:hover { transform: translateY(-4px) scale(1.015); box-shadow: 0 16px 38px rgba(212,163,115,0.28); }
+  .photo-item img { display:block;width:100%;height:auto; }
+  .photo-placeholder { background: linear-gradient(135deg,var(--sage),var(--cream2),var(--peach)); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 3rem 2rem; text-align: center; gap: 0.8rem; }
+  .photo-placeholder-icon { font-size: 2.5rem; }
+  .photo-placeholder-label { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1rem; color: var(--tan); opacity: 0.7; }
+  .photo-caption { padding: 0.8rem 1rem; background: var(--ivory); font-size: 0.8rem; color: var(--muted); line-height: 1.6; }
+  #photoFileInput { display: none; }
+  .lightbox-overlay { display: none; position: fixed; inset: 0; z-index: 200; background: rgba(122,96,64,0.85); backdrop-filter: blur(8px); align-items: center; justify-content: center; }
+  .lightbox-overlay.open { display: flex; }
+  .lightbox-img { max-width: 90vw; max-height: 85vh; border-radius: 1rem; box-shadow: 0 30px 80px rgba(0,0,0,0.4); object-fit: contain; }
+  .lightbox-close { position: fixed; top: 1.5rem; right: 2rem; font-size: 2rem; color: var(--ivory); cursor: pointer; opacity: 0.8; transition: opacity 0.2s; z-index: 201; }
+  .lightbox-close:hover { opacity: 1; }
+
+  /* GET INVOLVED */
+  .involved-hero { background: linear-gradient(135deg,var(--peach) 0%,var(--cream2) 100%); padding: 5rem 6vw 4rem; text-align: center; border-bottom: 1px solid rgba(212,163,115,0.2); }
+  .involved-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 2rem; margin-top: 3rem; }
+  .involved-card { background: var(--ivory); border-radius: 1.4rem; padding: 2.2rem; border: 1px solid rgba(212,163,115,0.2); box-shadow: 0 4px 20px rgba(212,163,115,0.15); text-align: center; transition: transform 0.3s, box-shadow 0.3s; }
   .involved-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(212,163,115,0.25); }
   .involved-icon { font-size:2.5rem;display:block;margin-bottom:1rem; }
   .involved-title { font-family:'Playfair Display',serif;font-size:1.3rem;margin-bottom:0.6rem;color:var(--text); }
   .involved-desc { font-size:0.9rem;color:var(--muted);line-height:1.8;margin-bottom:1.5rem; }
 
-  .contact-hero {
-    background: var(--peach); padding: 5rem 6vw 4rem;
-    border-bottom: 1px solid rgba(212,163,115,0.2);
-  }
-  .contact-grid {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 4rem; margin-top: 3rem; padding: 0 6vw 5rem;
-  }
+  /* CONTACT */
+  .contact-hero { background: var(--peach); padding: 5rem 6vw 4rem; border-bottom: 1px solid rgba(212,163,115,0.2); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 3rem; padding: 0 6vw 5rem; }
   @media(max-width:768px){.contact-grid{grid-template-columns:1fr;}}
   .contact-item { margin-bottom:1.6rem; }
   .contact-label { font-size:0.72rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--tan);margin-bottom:0.3rem; }
   .contact-value { font-size:1rem;color:var(--text); }
+  .contact-value a { color:var(--text);text-decoration:none;transition:color 0.2s; }
+  .contact-value a:hover { color:var(--tan); }
   .contact-form { display:flex;flex-direction:column;gap:1rem; }
-  .contact-form input,
-  .contact-form textarea {
-    background: var(--ivory); border: 1px solid rgba(212,163,115,0.4);
-    border-radius: 0.65rem; padding: 0.85rem 1.1rem;
-    color: var(--text); font-family:'DM Sans',sans-serif;
-    font-size:0.95rem;outline:none;
-    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
-  }
-  .contact-form input::placeholder,
-  .contact-form textarea::placeholder { color:rgba(196,148,96,0.55); }
-  .contact-form input:focus,
-  .contact-form textarea:focus {
-    border-color:var(--tan);box-shadow:0 0 0 3px rgba(212,163,115,0.18);
-    transform:translateY(-1px);
-  }
+  .contact-form input, .contact-form textarea { background: var(--ivory); border: 1px solid rgba(212,163,115,0.4); border-radius: 0.65rem; padding: 0.85rem 1.1rem; color: var(--text); font-family:'DM Sans',sans-serif; font-size:0.95rem;outline:none; transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s; }
+  .contact-form input::placeholder, .contact-form textarea::placeholder { color:rgba(196,148,96,0.55); }
+  .contact-form input:focus, .contact-form textarea:focus { border-color:var(--tan);box-shadow:0 0 0 3px rgba(212,163,115,0.18);transform:translateY(-1px); }
   .contact-form textarea { resize:vertical;min-height:120px; }
 
-  footer {
-    text-align:center;padding:2rem 6vw;
-    background:var(--cream2);
-    border-top:1px solid rgba(212,163,115,0.4);
-    color:var(--muted);font-size:0.82rem;letter-spacing:0.04em;
-  }
-  footer span { color:var(--tan);font-weight:500; }
+  /* FOOTER */
+  footer { background: var(--cream2); border-top: 1px solid rgba(212,163,115,0.4); padding: 0; }
+  .footer-dedication { text-align: center; padding: 2.6rem 6vw 1.6rem; border-bottom: 1px solid rgba(212,163,115,0.25); }
+  .footer-dedication p { font-family: 'Playfair Display', serif; font-style: italic; font-size: 0.97rem; color: var(--muted); line-height: 2; max-width: 740px; margin: 0 auto; }
+  .footer-dedication p strong { font-weight: 700; color: var(--tan); font-style: normal; }
+  .dedication-hearts { font-size: 1.2rem; margin-bottom: 0.6rem; display: block; letter-spacing: 0.3em; }
+  .footer-social { display: flex; align-items: center; justify-content: center; gap: 1rem; padding: 1.2rem 6vw; border-bottom: 1px solid rgba(212,163,115,0.2); flex-wrap: wrap; }
+  .social-link { display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; color: var(--muted); font-size: 0.82rem; font-weight: 500; letter-spacing: 0.05em; padding: 0.45rem 1rem; border-radius: 2rem; border: 1px solid rgba(212,163,115,0.35); transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s; }
+  .social-link:hover { background: var(--tan); color: var(--ivory); border-color: var(--tan); transform: translateY(-2px); }
+  .social-icon { width: 16px; height: 16px; flex-shrink: 0; }
+  .footer-bottom { text-align:center;padding:1.2rem 6vw;color:var(--muted);font-size:0.82rem;letter-spacing:0.04em; }
+  .footer-bottom span { color:var(--tan);font-weight:500; }
 </style>
 </head>
 <body>
@@ -409,6 +241,7 @@
       <li><a href="#" onclick="showPage('about')" data-page="about">About</a></li>
       <li><a href="#" onclick="showPage('programs')" data-page="programs">Programs</a></li>
       <li><a href="#" onclick="showPage('events')" data-page="events">Events</a></li>
+      <li><a href="#" onclick="showPage('photos')" data-page="photos">Photos</a></li>
       <li><a href="#" onclick="showPage('involved')" data-page="involved">Get Involved</a></li>
       <li><a href="#" onclick="showPage('contact')" data-page="contact">Contact</a></li>
       <li><a href="#" onclick="showPage('involved')" class="nav-donate">Donate</a></li>
@@ -422,11 +255,13 @@
     <a href="#" onclick="showPage('about');toggleMobile()">About</a>
     <a href="#" onclick="showPage('programs');toggleMobile()">Programs</a>
     <a href="#" onclick="showPage('events');toggleMobile()">Events</a>
+    <a href="#" onclick="showPage('photos');toggleMobile()">Photos</a>
     <a href="#" onclick="showPage('involved');toggleMobile()">Get Involved</a>
     <a href="#" onclick="showPage('contact');toggleMobile()">Contact</a>
   </div>
 </nav>
 
+<!-- HOME -->
 <div class="page active" id="page-home">
   <section class="hero">
     <div class="hero-bg" id="heroBg"></div>
@@ -439,10 +274,7 @@
       <h1>Nourishing <em>Houston,</em><br>One Family at a Time</h1>
       <p class="hero-sub">Clay's Corner is a nonprofit organization on the front lines of Houston's fight against food insecurity — delivering nutritious food, essential resources, and dignity to families across our community.</p>
       <div class="hero-location">
-        <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-          <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-        </svg>
+        <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
         Houston, Texas
       </div>
       <div class="btn-row" style="justify-content:center;">
@@ -480,6 +312,7 @@
   </div>
 </div>
 
+<!-- ABOUT -->
 <div class="page" id="page-about">
   <div class="about-hero">
     <div class="section-label">About Us</div>
@@ -502,28 +335,56 @@
     <div class="divider reveal d2"></div>
     <p class="section-body reveal d2">Our team brings together expertise in leadership, human resources, communications, and engineering — united by a shared commitment to Houston's most vulnerable communities.</p>
     <div class="team-grid">
+
       <div class="team-card reveal d1">
         <div class="team-avatar">CW</div>
         <div class="team-name">Ceondra Washington</div>
         <div class="team-role">Founder &amp; President</div>
         <div class="team-bio">Ceondra Washington is the visionary founder and president of Clay's Corner. With a robust background in leadership and operations, she built Clay's Corner into a structured, impactful nonprofit serving Houston's food-insecure communities. Currently pursuing a Master of Science in Business with a specialization in Human Resources, Ceondra brings both scholarly rigor and hands-on operational excellence to every dimension of the organization. A passionate advocate, she is also pursuing a path to law school — where she plans to extend her commitment to equity and justice to the policy level, fighting for the communities Clay's Corner serves.</div>
+        <a href="mailto:ceondra@clayscornerhou.org" class="team-email">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+          ceondra@clayscornerhou.org
+        </a>
       </div>
+
       <div class="team-card reveal d2">
+        <div class="team-avatar">SS</div>
+        <div class="team-name">Somber Spears</div>
+        <div class="team-role">Chief of Staff</div>
+        <div class="team-bio">Somber Spears serves as Chief of Staff for Clay's Corner, providing the operational backbone that keeps the organization running with precision and purpose. In this role, she coordinates across leadership, manages key organizational priorities, and ensures that Clay's Corner's mission is executed with consistency and care at every level.</div>
+        <a href="mailto:somber@clayscornerhou.org" class="team-email">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+          somber@clayscornerhou.org
+        </a>
+      </div>
+
+      <div class="team-card reveal d3">
         <div class="team-avatar">JK</div>
         <div class="team-name">Jereldine Korfeh</div>
         <div class="team-role">Public Relations Manager</div>
         <div class="team-bio">Jereldine Korfeh serves as the voice and brand steward of Clay's Corner. As Public Relations Manager, she shapes the organization's public narrative with precision and authenticity — cultivating meaningful relationships with media partners, community stakeholders, and the public at large. Her strategic communications expertise ensures that Clay's Corner's mission resonates far beyond Houston's city limits.</div>
+        <a href="mailto:jereldine@clayscornerhou.org" class="team-email">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+          jereldine@clayscornerhou.org
+        </a>
       </div>
-      <div class="team-card reveal d3">
+
+      <div class="team-card reveal d1">
         <div class="team-avatar">EG</div>
         <div class="team-name">Erica Guery</div>
         <div class="team-role">Director of Outreach</div>
         <div class="team-bio">Erica Guery leads Clay's Corner's community outreach with the analytical precision of an Engineering Technology scholar. As Director of Outreach, she designs and executes strategies that ensure no family goes unreached — building bridges between the organization and the neighborhoods that need it most. Her engineering mindset produces outreach programs that are scalable, efficient, and deeply human-centered.</div>
+        <a href="mailto:erica@clayscornerhou.org" class="team-email">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+          erica@clayscornerhou.org
+        </a>
       </div>
+
     </div>
   </div>
 </div>
 
+<!-- PROGRAMS -->
 <div class="page" id="page-programs">
   <div class="programs-hero">
     <div class="section-label">What We Do</div>
@@ -533,15 +394,16 @@
   <div class="section-pad">
     <div class="programs-grid">
       <div class="program-card reveal d1"><span class="program-icon">🥫</span><div class="program-title">Food Pantry</div><div class="program-desc">Our core program provides free, nutritious food to Houston families in need. We distribute fresh produce, proteins, grains, and pantry staples on a regular schedule — ensuring consistent access to quality food without barriers.</div></div>
-      <div class="program-card reveal d2"><span class="program-icon">🤝</span><div class="program-title">Community Resource Hub</div><div class="program-desc">Beyond food, we connect families with critical resources including housing assistance, employment services, healthcare referrals, utility support, and educational programs — all under one roof.</div></div>
+      <div class="program-card reveal d2"><span class="program-icon">🤝🏽</span><div class="program-title">Community Resource Hub</div><div class="program-desc">Beyond food, we connect families with critical resources including housing assistance, employment services, healthcare referrals, utility support, and educational programs — all under one roof.</div></div>
       <div class="program-card reveal d3"><span class="program-icon">📦</span><div class="program-title">Holiday &amp; Emergency Boxes</div><div class="program-desc">During holidays and times of crisis, Clay's Corner assembles and distributes curated food boxes to ensure families never face a special occasion without a meal. Emergency boxes are also available year-round for families in acute need.</div></div>
       <div class="program-card reveal d1"><span class="program-icon">🌱</span><div class="program-title">Community Wellness Days</div><div class="program-desc">Our wellness events bring together health screenings, mental health resources, nutrition education, and community connection — addressing the whole person, not just the immediate need.</div></div>
-      <div class="program-card reveal d2"><span class="program-icon">🤲</span><div class="program-title">Volunteer Program</div><div class="program-desc">Our volunteers are the backbone of Clay's Corner. We provide structured, meaningful volunteer opportunities for individuals, groups, and corporate partners — making it easy to give back to Houston.</div></div>
+      <div class="program-card reveal d2"><span class="program-icon">🤲🏽</span><div class="program-title">Volunteer Program</div><div class="program-desc">Our volunteers are the backbone of Clay's Corner. We provide structured, meaningful volunteer opportunities for individuals, groups, and corporate partners — making it easy to give back to Houston.</div></div>
       <div class="program-card reveal d3"><span class="program-icon">🏙️</span><div class="program-title">Community Partnerships</div><div class="program-desc">We actively partner with local businesses, faith organizations, schools, and civic groups to amplify our impact — because fighting food insecurity in Houston takes a whole community.</div></div>
     </div>
   </div>
 </div>
 
+<!-- EVENTS -->
 <div class="page" id="page-events">
   <div class="events-hero">
     <div class="section-label">Calendar</div>
@@ -560,6 +422,52 @@
   </div>
 </div>
 
+<!-- PHOTOS -->
+<div class="page" id="page-photos">
+  <div class="photos-hero">
+    <div class="section-label">Gallery</div>
+    <h1 class="section-title">Our <em>Community</em> in Photos</h1>
+    <p class="section-body">Moments of service, connection, and joy from Clay's Corner events and programs across Houston.</p>
+    <div class="photos-upload-bar">
+      <p>📸 &nbsp;Have photos from a Clay's Corner event? Send them to <a href="mailto:info@clayscornerhou.org" style="color:var(--tan);font-weight:500;">info@clayscornerhou.org</a> or tag us <strong style="color:var(--tan);">@clayscornerhou</strong> on Instagram.</p>
+      <label for="photoFileInput" class="btn btn-outline" style="font-size:0.85rem;padding:0.6rem 1.4rem;cursor:pointer;">+ Add Photo</label>
+      <input type="file" id="photoFileInput" accept="image/*" multiple onchange="handlePhotoUpload(event)">
+    </div>
+  </div>
+  <div id="photoGallery" class="photo-gallery">
+    <div class="photo-item reveal d1">
+      <div class="photo-placeholder" style="min-height:220px;"><div class="photo-placeholder-icon">🥫</div><div class="photo-placeholder-label">Food Distribution Drive</div></div>
+      <div class="photo-caption">Monthly food distribution — families, volunteers, and community coming together.</div>
+    </div>
+    <div class="photo-item reveal d2">
+      <div class="photo-placeholder" style="min-height:300px;"><div class="photo-placeholder-icon">🤝🏽</div><div class="photo-placeholder-label">Community Resource Fair</div></div>
+      <div class="photo-caption">Connecting Houston families with housing, healthcare, and employment resources.</div>
+    </div>
+    <div class="photo-item reveal d3">
+      <div class="photo-placeholder" style="min-height:180px;"><div class="photo-placeholder-icon">📦</div><div class="photo-placeholder-label">Holiday Food Boxes</div></div>
+      <div class="photo-caption">Holiday boxes packed with love — ensuring no family goes without during special occasions.</div>
+    </div>
+    <div class="photo-item reveal d1">
+      <div class="photo-placeholder" style="min-height:260px;"><div class="photo-placeholder-icon">🌱</div><div class="photo-placeholder-label">Community Wellness Day</div></div>
+      <div class="photo-caption">Health screenings, mental health resources, and community connection all in one place.</div>
+    </div>
+    <div class="photo-item reveal d2">
+      <div class="photo-placeholder" style="min-height:200px;"><div class="photo-placeholder-icon">🏙️</div><div class="photo-placeholder-label">Houston Community</div></div>
+      <div class="photo-caption">Clay's Corner — built by Houston, for Houston.</div>
+    </div>
+    <div class="photo-item reveal d3">
+      <div class="photo-placeholder" style="min-height:240px;"><div class="photo-placeholder-icon">🎒</div><div class="photo-placeholder-label">Back-to-School Drive</div></div>
+      <div class="photo-caption">Sending Houston kids into the school year strong — food, supplies, and community support.</div>
+    </div>
+  </div>
+</div>
+
+<div class="lightbox-overlay" id="lightbox" onclick="closeLightbox()">
+  <span class="lightbox-close" onclick="closeLightbox()">✕</span>
+  <img class="lightbox-img" id="lightboxImg" src="" alt="">
+</div>
+
+<!-- GET INVOLVED -->
 <div class="page" id="page-involved">
   <div class="involved-hero">
     <div class="section-label">Make a Difference</div>
@@ -569,15 +477,16 @@
   <div class="section-pad">
     <div class="involved-grid">
       <div class="involved-card reveal d1"><span class="involved-icon">💛</span><div class="involved-title">Donate</div><div class="involved-desc">Your financial contribution directly funds food purchases, distribution operations, and community programs. Every dollar stays local and makes a measurable impact.</div><a href="#" onclick="showPage('contact')" class="btn btn-primary">Make a Donation</a></div>
-      <div class="involved-card reveal d2"><span class="involved-icon">🙌</span><div class="involved-title">Volunteer</div><div class="involved-desc">Our volunteers are the backbone of Clay's Corner. From distribution days to event support, there are meaningful opportunities for individuals, families, and corporate groups.</div><a href="#" onclick="showPage('contact')" class="btn btn-primary">Sign Up to Volunteer</a></div>
+      <div class="involved-card reveal d2"><span class="involved-icon">🙌🏽</span><div class="involved-title">Volunteer</div><div class="involved-desc">Our volunteers are the backbone of Clay's Corner. From distribution days to event support, there are meaningful opportunities for individuals, families, and corporate groups.</div><a href="#" onclick="showPage('contact')" class="btn btn-primary">Sign Up to Volunteer</a></div>
       <div class="involved-card reveal d3"><span class="involved-icon">🏢</span><div class="involved-title">Corporate Partnership</div><div class="involved-desc">Partner with Clay's Corner to amplify your company's community impact. We offer tailored partnership opportunities including food drives, sponsorships, and team volunteer days.</div><a href="#" onclick="showPage('contact')" class="btn btn-primary">Become a Partner</a></div>
       <div class="involved-card reveal d1"><span class="involved-icon">📦</span><div class="involved-title">Donate Food</div><div class="involved-desc">Non-perishable food donations are always welcome. Canned goods, grains, proteins, and pantry staples have an immediate impact on the families we serve.</div><a href="#" onclick="showPage('contact')" class="btn btn-outline">Learn How</a></div>
-      <div class="involved-card reveal d2"><span class="involved-icon">📣</span><div class="involved-title">Spread the Word</div><div class="involved-desc">Follow us on social media, share our events, and help us reach more Houston families who need support. Awareness is one of the most powerful tools we have.</div><a href="#" class="btn btn-outline">Follow @ClayscornerHOU</a></div>
+      <div class="involved-card reveal d2"><span class="involved-icon">📣</span><div class="involved-title">Spread the Word</div><div class="involved-desc">Follow us on social media, share our events, and help us reach more Houston families who need support. Awareness is one of the most powerful tools we have.</div><a href="https://www.instagram.com/clayscornerhou" target="_blank" class="btn btn-outline">Follow @clayscornerhou</a></div>
       <div class="involved-card reveal d3"><span class="involved-icon">📋</span><div class="involved-title">Join Our Board</div><div class="involved-desc">We are growing and looking for dedicated community leaders, professionals, and advocates to help guide Clay's Corner into its next chapter. Inquire to learn more.</div><a href="#" onclick="showPage('contact')" class="btn btn-outline">Inquire Now</a></div>
     </div>
   </div>
 </div>
 
+<!-- CONTACT -->
 <div class="page" id="page-contact">
   <div class="contact-hero">
     <div class="section-label">Reach Out</div>
@@ -587,9 +496,9 @@
   <div class="contact-grid">
     <div class="reveal d1">
       <div class="contact-item"><div class="contact-label">Location</div><div class="contact-value">Houston, Texas</div></div>
-      <div class="contact-item"><div class="contact-label">Email</div><div class="contact-value">info@clayscorner.org</div></div>
-      <div class="contact-item"><div class="contact-label">Phone</div><div class="contact-value">(713) 000-0000</div></div>
-      <div class="contact-item"><div class="contact-label">Follow Us</div><div class="contact-value">@ClayscornerHOU</div></div>
+      <div class="contact-item"><div class="contact-label">General Email</div><div class="contact-value"><a href="mailto:info@clayscornerhou.org">info@clayscornerhou.org</a></div></div>
+      <div class="contact-item"><div class="contact-label">Instagram</div><div class="contact-value"><a href="https://www.instagram.com/clayscornerhou" target="_blank">@clayscornerhou</a></div></div>
+      <div class="contact-item"><div class="contact-label">Facebook</div><div class="contact-value"><a href="https://www.facebook.com/search/top?q=Clay%27s%20Corner" target="_blank">Clay's Corner</a></div></div>
       <br>
       <p style="font-size:0.9rem;color:var(--muted);line-height:1.8;max-width:360px;">We welcome families in need, potential volunteers, donors, partners, and media inquiries. No question is too small — we are here for you.</p>
     </div>
@@ -605,8 +514,31 @@
   </div>
 </div>
 
+<!-- FOOTER -->
 <footer>
-  <p>© 2025 <span>Clay's Corner</span> &nbsp;·&nbsp; Houston, Texas &nbsp;·&nbsp; All Rights Reserved &nbsp;·&nbsp; Founded with love, built for <span>Houston</span>.</p>
+  <div class="footer-dedication">
+    <span class="dedication-hearts">🤎 🤎 🤎</span>
+    <p>
+      Dedicated with love to <strong>Clay Wilson</strong>, <strong>Jada Wilson</strong>, <strong>Symphony Spears-Carter</strong>, <strong>Chrissa</strong>, and <strong>TJ Foreman</strong> — our beloved ones who inspire everything we do — and to the <strong>Houston community</strong> we are honored to serve. This corner was built because of you, and for you, always.
+    </p>
+  </div>
+  <div class="footer-social">
+    <a href="https://www.instagram.com/clayscornerhou" target="_blank" class="social-link">
+      <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      @clayscornerhou
+    </a>
+    <a href="https://www.facebook.com/search/top?q=Clay%27s%20Corner" target="_blank" class="social-link">
+      <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      Clay's Corner
+    </a>
+    <a href="mailto:info@clayscornerhou.org" class="social-link">
+      <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+      info@clayscornerhou.org
+    </a>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 <span>Clay's Corner</span> &nbsp;·&nbsp; Houston, Texas &nbsp;·&nbsp; All Rights Reserved &nbsp;·&nbsp; Founded with love, built for <span>Houston</span>.</p>
+  </div>
 </footer>
 
 <script>
@@ -676,6 +608,32 @@
     }, { threshold: 0.3 });
     obs.observe(statsSection);
   }
+  function handlePhotoUpload(event) {
+    const files = Array.from(event.target.files);
+    const gallery = document.getElementById('photoGallery');
+    files.forEach(file => {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const item = document.createElement('div');
+        item.className = 'photo-item reveal visible';
+        const src = e.target.result;
+        item.innerHTML = `<img src="${src}" alt="Community photo" onclick="openLightbox(this.src)"><div class="photo-caption">📸 Community photo — submitted by our family.</div>`;
+        gallery.prepend(item);
+      };
+      reader.readAsDataURL(file);
+    });
+    event.target.value = '';
+  }
+  function openLightbox(src) {
+    document.getElementById('lightboxImg').src = src;
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
   initReveal();
   initStats();
   document.querySelectorAll('.nav-tabs a, .mobile-menu a').forEach(a => {

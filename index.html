@@ -193,6 +193,23 @@
   .lightbox-close { position: fixed; top: 1.5rem; right: 2rem; font-size: 2rem; color: var(--ivory); cursor: pointer; opacity: 0.8; transition: opacity 0.2s; z-index: 201; }
   .lightbox-close:hover { opacity: 1; }
 
+  /* Photo upload toast */
+  .upload-toast {
+    position: fixed; bottom: 2rem; right: 2rem; z-index: 300;
+    background: var(--ivory); border: 1px solid rgba(212,163,115,0.4);
+    border-radius: 1rem; padding: 1rem 1.4rem;
+    box-shadow: 0 12px 40px rgba(212,163,115,0.3);
+    display: flex; align-items: flex-start; gap: 0.8rem;
+    max-width: 320px; transform: translateY(120px); opacity: 0;
+    transition: transform 0.4s cubic-bezier(.34,1.56,.64,1), opacity 0.3s;
+  }
+  .upload-toast.show { transform: translateY(0); opacity: 1; }
+  .upload-toast-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 0.1rem; }
+  .upload-toast-title { font-family: 'Playfair Display', serif; font-size: 0.95rem; color: var(--text); margin-bottom: 0.2rem; }
+  .upload-toast-body { font-size: 0.78rem; color: var(--muted); line-height: 1.6; }
+  .upload-toast-close { position: absolute; top: 0.6rem; right: 0.8rem; font-size: 1rem; cursor: pointer; color: var(--muted); opacity: 0.6; }
+  .upload-toast-close:hover { opacity: 1; }
+
   /* GET INVOLVED */
   .involved-hero { background: linear-gradient(135deg,var(--peach) 0%,var(--cream2) 100%); padding: 5rem 6vw 4rem; text-align: center; border-bottom: 1px solid rgba(212,163,115,0.2); }
   .involved-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 2rem; margin-top: 3rem; }
@@ -212,10 +229,57 @@
   .contact-value a { color:var(--text);text-decoration:none;transition:color 0.2s; }
   .contact-value a:hover { color:var(--tan); }
   .contact-form { display:flex;flex-direction:column;gap:1rem; }
-  .contact-form input, .contact-form textarea { background: var(--ivory); border: 1px solid rgba(212,163,115,0.4); border-radius: 0.65rem; padding: 0.85rem 1.1rem; color: var(--text); font-family:'DM Sans',sans-serif; font-size:0.95rem;outline:none; transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s; }
+  .contact-form input, .contact-form textarea {
+    background: var(--ivory); border: 1px solid rgba(212,163,115,0.4);
+    border-radius: 0.65rem; padding: 0.85rem 1.1rem; color: var(--text);
+    font-family:'DM Sans',sans-serif; font-size:0.95rem;outline:none;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  }
   .contact-form input::placeholder, .contact-form textarea::placeholder { color:rgba(196,148,96,0.55); }
   .contact-form input:focus, .contact-form textarea:focus { border-color:var(--tan);box-shadow:0 0 0 3px rgba(212,163,115,0.18);transform:translateY(-1px); }
   .contact-form textarea { resize:vertical;min-height:120px; }
+
+  /* Contact form states */
+  .form-status {
+    padding: 0.9rem 1.1rem; border-radius: 0.65rem; font-size: 0.88rem; line-height: 1.6;
+    display: none; align-items: flex-start; gap: 0.6rem;
+  }
+  .form-status.success { display: flex; background: rgba(204,213,174,0.4); border: 1px solid rgba(204,213,174,0.8); color: #5a7a40; }
+  .form-status.error { display: flex; background: rgba(250,200,180,0.4); border: 1px solid rgba(220,130,100,0.5); color: #8a4030; }
+  .form-status-icon { font-size: 1.1rem; flex-shrink: 0; }
+
+  .btn-sending { opacity: 0.7; cursor: not-allowed !important; }
+  .spinner { display: inline-block; width: 14px; height: 14px; border: 2px solid rgba(255,255,255,0.4); border-top-color: white; border-radius: 50%; animation: spin 0.7s linear infinite; margin-right: 0.5rem; vertical-align: middle; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* NEWSLETTER */
+  .newsletter-strip {
+    background: linear-gradient(135deg, var(--tan) 0%, var(--warm) 100%);
+    padding: 3.5rem 6vw; text-align: center;
+  }
+  .newsletter-strip .section-label { color: rgba(254,250,224,0.75); }
+  .newsletter-strip .section-title { color: var(--ivory); margin-bottom: 0.6rem; }
+  .newsletter-strip .section-title em { color: rgba(254,250,224,0.85); font-style: italic; }
+  .newsletter-sub { color: rgba(254,250,224,0.85); font-size: 0.95rem; line-height: 1.8; max-width: 500px; margin: 0 auto 2rem; }
+  .newsletter-form { display: flex; gap: 0.7rem; max-width: 480px; margin: 0 auto; flex-wrap: wrap; justify-content: center; }
+  .newsletter-form input {
+    flex: 1; min-width: 220px; padding: 0.85rem 1.2rem;
+    border-radius: 3rem; border: none; outline: none;
+    background: rgba(254,250,224,0.95); color: var(--text);
+    font-family: 'DM Sans', sans-serif; font-size: 0.95rem;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .newsletter-form input::placeholder { color: rgba(160,128,80,0.6); }
+  .newsletter-form input:focus { box-shadow: 0 0 0 3px rgba(254,250,224,0.4); transform: translateY(-1px); }
+  .newsletter-form button {
+    padding: 0.85rem 1.8rem; border-radius: 3rem; border: 2px solid var(--ivory);
+    background: transparent; color: var(--ivory); font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem; font-weight: 500; cursor: pointer;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+  }
+  .newsletter-form button:hover { background: var(--ivory); color: var(--warm); transform: translateY(-2px); }
+  .newsletter-form button:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+  .newsletter-status { margin-top: 1rem; font-size: 0.85rem; color: rgba(254,250,224,0.9); min-height: 1.4rem; }
 
   /* FOOTER */
   footer { background: var(--cream2); border-top: 1px solid rgba(212,163,115,0.4); padding: 0; }
@@ -335,7 +399,6 @@
     <div class="divider reveal d2"></div>
     <p class="section-body reveal d2">Our team brings together expertise in leadership, human resources, communications, and engineering — united by a shared commitment to Houston's most vulnerable communities.</p>
     <div class="team-grid">
-
       <div class="team-card reveal d1">
         <div class="team-avatar">CW</div>
         <div class="team-name">Ceondra Washington</div>
@@ -346,7 +409,6 @@
           ceondra@clayscornerhou.org
         </a>
       </div>
-
       <div class="team-card reveal d2">
         <div class="team-avatar">SS</div>
         <div class="team-name">Somber Spears</div>
@@ -357,7 +419,6 @@
           somber@clayscornerhou.org
         </a>
       </div>
-
       <div class="team-card reveal d3">
         <div class="team-avatar">JK</div>
         <div class="team-name">Jereldine Korfeh</div>
@@ -368,7 +429,6 @@
           jereldine@clayscornerhou.org
         </a>
       </div>
-
       <div class="team-card reveal d1">
         <div class="team-avatar">EG</div>
         <div class="team-name">Erica Guery</div>
@@ -379,7 +439,6 @@
           erica@clayscornerhou.org
         </a>
       </div>
-
     </div>
   </div>
 </div>
@@ -467,6 +526,15 @@
   <img class="lightbox-img" id="lightboxImg" src="" alt="">
 </div>
 
+<div class="upload-toast" id="uploadToast">
+  <span class="upload-toast-close" onclick="closeToast()">✕</span>
+  <div class="upload-toast-icon" id="toastIcon">📸</div>
+  <div>
+    <div class="upload-toast-title" id="toastTitle">Photo received!</div>
+    <div class="upload-toast-body" id="toastBody">Your photo is showing below. It will be added to our official gallery upon approval by our team.</div>
+  </div>
+</div>
+
 <!-- GET INVOLVED -->
 <div class="page" id="page-involved">
   <div class="involved-hero">
@@ -503,15 +571,41 @@
       <p style="font-size:0.9rem;color:var(--muted);line-height:1.8;max-width:360px;">We welcome families in need, potential volunteers, donors, partners, and media inquiries. No question is too small — we are here for you.</p>
     </div>
     <div class="reveal d2">
-      <div class="contact-form">
-        <input type="text" placeholder="Your Full Name">
-        <input type="email" placeholder="Email Address">
-        <input type="text" placeholder="Subject — Donate / Volunteer / Partner / Family Services / Other">
-        <textarea placeholder="Your message..."></textarea>
-        <button class="btn btn-primary" style="border:none;cursor:pointer;" onclick="alert('Thank you for reaching out! We will be in touch with you shortly.')">Send Message</button>
+      <div class="contact-form" id="contactForm">
+        <input type="text" id="cf-name" placeholder="Your Full Name" required>
+        <input type="email" id="cf-email" placeholder="Email Address" required>
+        <input type="text" id="cf-subject" placeholder="Subject — Donate / Volunteer / Partner / Family Services / Other">
+        <textarea id="cf-message" placeholder="Your message..." style="min-height:130px;"></textarea>
+        <div class="form-status" id="formSuccess">
+          <span class="form-status-icon">🤎</span>
+          <div>
+            <strong style="display:block;margin-bottom:0.2rem;">Message received!</strong>
+            Thank you for reaching out to Clay's Corner. Our team will be in touch with you shortly.
+          </div>
+        </div>
+        <div class="form-status" id="formError">
+          <span class="form-status-icon">⚠️</span>
+          <div>
+            <strong style="display:block;margin-bottom:0.2rem;">Something went wrong.</strong>
+            Please try again or email us directly at <a href="mailto:info@clayscornerhou.org" style="color:inherit;font-weight:500;">info@clayscornerhou.org</a>.
+          </div>
+        </div>
+        <button class="btn btn-primary" id="submitBtn" style="border:none;cursor:pointer;" onclick="submitContactForm()">Send Message</button>
       </div>
     </div>
   </div>
+</div>
+
+<!-- NEWSLETTER STRIP -->
+<div class="newsletter-strip" id="newsletterStrip">
+  <div class="section-label">Stay Connected</div>
+  <h2 class="section-title">Join Our <em>Newsletter</em></h2>
+  <p class="newsletter-sub">Get updates on upcoming events, food drives, and ways to support Houston families — delivered straight to your inbox.</p>
+  <div class="newsletter-form">
+    <input type="email" id="nl-email" placeholder="Your email address">
+    <button id="nl-btn" onclick="subscribeNewsletter()">Subscribe</button>
+  </div>
+  <div class="newsletter-status" id="nl-status"></div>
 </div>
 
 <!-- FOOTER -->
@@ -542,6 +636,8 @@
 </footer>
 
 <script>
+  const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzZiBOKsAwQP0M-5NVR7kFTMCrGhccV9ckx_RwpHXJHm1jdBARhdNfCXQsCmPh12fmG/exec";
+
   function showPage(name) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.getElementById('page-' + name).classList.add('active');
@@ -564,6 +660,7 @@
       heroBg.style.transform = `translateY(${window.scrollY * 0.3}px)`;
     }
   }, { passive: true });
+
   let revealObserver;
   function initReveal() {
     if (revealObserver) revealObserver.disconnect();
@@ -579,6 +676,7 @@
       if (!el.classList.contains('visible')) revealObserver.observe(el);
     });
   }
+
   let statsCounted = false;
   function countUp(el) {
     const target = parseInt(el.dataset.target);
@@ -608,22 +706,63 @@
     }, { threshold: 0.3 });
     obs.observe(statsSection);
   }
-  function handlePhotoUpload(event) {
+
+  let toastTimer;
+  function showToast(icon, title, body) {
+    const toast = document.getElementById('uploadToast');
+    document.getElementById('toastIcon').textContent = icon;
+    document.getElementById('toastTitle').textContent = title;
+    document.getElementById('toastBody').textContent = body;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('show'), 6000);
+  }
+  function closeToast() {
+    document.getElementById('uploadToast').classList.remove('show');
+  }
+
+  async function handlePhotoUpload(event) {
     const files = Array.from(event.target.files);
     const gallery = document.getElementById('photoGallery');
-    files.forEach(file => {
+    for (const file of files) {
       const reader = new FileReader();
-      reader.onload = (e) => {
+      reader.onload = async (e) => {
         const item = document.createElement('div');
         item.className = 'photo-item reveal visible';
         const src = e.target.result;
-        item.innerHTML = `<img src="${src}" alt="Community photo" onclick="openLightbox(this.src)"><div class="photo-caption">📸 Community photo — submitted by our family.</div>`;
+        item.innerHTML = `
+          <img src="${src}" alt="Community photo" onclick="openLightbox(this.src)" style="opacity:0.85;">
+          <div class="photo-caption">
+            📸 Community photo — submitted by our family.
+            <span style="display:block;margin-top:0.3rem;font-size:0.74rem;color:var(--tan);font-style:italic;">
+              This photo will be added to our official gallery upon approval by our team.
+            </span>
+          </div>`;
         gallery.prepend(item);
+        try {
+          const base64 = src.split(',')[1];
+          const payload = {
+            type: "photo",
+            fileName: file.name || `community-photo-${Date.now()}.jpg`,
+            mimeType: file.type || "image/jpeg",
+            imageData: base64
+          };
+          const res = await fetch(APPS_SCRIPT_URL, { method: "POST", body: JSON.stringify(payload) });
+          const result = await res.json();
+          if (result.status === "ok") {
+            showToast("📸", "Photo received!", "Your photo has been sent to our team for review. It'll appear in the official gallery upon approval.");
+          } else {
+            showToast("📸", "Photo previewed!", "Your photo is showing below. Please also email it to info@clayscornerhou.org.");
+          }
+        } catch {
+          showToast("📸", "Photo previewed!", "Your photo is showing below. Our team will be in touch — you can also email it to info@clayscornerhou.org.");
+        }
       };
       reader.readAsDataURL(file);
-    });
+    }
     event.target.value = '';
   }
+
   function openLightbox(src) {
     document.getElementById('lightboxImg').src = src;
     document.getElementById('lightbox').classList.add('open');
@@ -634,6 +773,89 @@
     document.body.style.overflow = '';
   }
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+
+  async function submitContactForm() {
+    const name    = document.getElementById('cf-name').value.trim();
+    const email   = document.getElementById('cf-email').value.trim();
+    const subject = document.getElementById('cf-subject').value.trim();
+    const message = document.getElementById('cf-message').value.trim();
+    if (!name || !email || !message) {
+      ['cf-name','cf-email','cf-message'].forEach(id => {
+        const el = document.getElementById(id);
+        if (!el.value.trim()) {
+          el.style.borderColor = 'rgba(220,130,100,0.7)';
+          el.style.boxShadow = '0 0 0 3px rgba(220,130,100,0.15)';
+          el.addEventListener('input', () => { el.style.borderColor = ''; el.style.boxShadow = ''; }, { once: true });
+        }
+      });
+      return;
+    }
+    const btn = document.getElementById('submitBtn');
+    const successEl = document.getElementById('formSuccess');
+    const errorEl = document.getElementById('formError');
+    successEl.style.display = 'none';
+    errorEl.style.display = 'none';
+    btn.classList.add('btn-sending');
+    btn.innerHTML = '<span class="spinner"></span>Sending…';
+    btn.disabled = true;
+    try {
+      const res = await fetch(APPS_SCRIPT_URL, {
+        method: "POST",
+        body: JSON.stringify({ type: "contact", name, email, subject, message })
+      });
+      const result = await res.json();
+      btn.innerHTML = 'Send Message';
+      btn.classList.remove('btn-sending');
+      btn.disabled = false;
+      if (result.status === "ok") {
+        successEl.style.display = 'flex';
+        document.getElementById('cf-name').value = '';
+        document.getElementById('cf-email').value = '';
+        document.getElementById('cf-subject').value = '';
+        document.getElementById('cf-message').value = '';
+      } else {
+        errorEl.style.display = 'flex';
+      }
+    } catch {
+      btn.innerHTML = 'Send Message';
+      btn.classList.remove('btn-sending');
+      btn.disabled = false;
+      errorEl.style.display = 'flex';
+    }
+  }
+
+  async function subscribeNewsletter() {
+    const emailEl = document.getElementById('nl-email');
+    const btn = document.getElementById('nl-btn');
+    const status = document.getElementById('nl-status');
+    const email = emailEl.value.trim();
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      emailEl.style.boxShadow = '0 0 0 3px rgba(220,130,100,0.35)';
+      emailEl.addEventListener('input', () => { emailEl.style.boxShadow = ''; }, { once: true });
+      return;
+    }
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spinner" style="border-color:rgba(255,255,255,0.3);border-top-color:white;"></span>';
+    status.textContent = '';
+    try {
+      const res = await fetch(APPS_SCRIPT_URL, { method: "POST", body: JSON.stringify({ type: "newsletter", email }) });
+      const result = await res.json();
+      if (result.status === "ok") {
+        status.textContent = "You're subscribed! Thank you for joining the Clay's Corner community.";
+        btn.innerHTML = '✓ Subscribed';
+        emailEl.value = '';
+      } else {
+        status.textContent = "Something went wrong. Please try again or email us at info@clayscornerhou.org.";
+        btn.disabled = false;
+        btn.innerHTML = 'Subscribe';
+      }
+    } catch {
+      status.textContent = "Something went wrong. Please try again or email us at info@clayscornerhou.org.";
+      btn.disabled = false;
+      btn.innerHTML = 'Subscribe';
+    }
+  }
+
   initReveal();
   initStats();
   document.querySelectorAll('.nav-tabs a, .mobile-menu a').forEach(a => {

@@ -193,23 +193,6 @@
   .lightbox-close { position: fixed; top: 1.5rem; right: 2rem; font-size: 2rem; color: var(--ivory); cursor: pointer; opacity: 0.8; transition: opacity 0.2s; z-index: 201; }
   .lightbox-close:hover { opacity: 1; }
 
-  /* Photo upload toast */
-  .upload-toast {
-    position: fixed; bottom: 2rem; right: 2rem; z-index: 300;
-    background: var(--ivory); border: 1px solid rgba(212,163,115,0.4);
-    border-radius: 1rem; padding: 1rem 1.4rem;
-    box-shadow: 0 12px 40px rgba(212,163,115,0.3);
-    display: flex; align-items: flex-start; gap: 0.8rem;
-    max-width: 320px; transform: translateY(120px); opacity: 0;
-    transition: transform 0.4s cubic-bezier(.34,1.56,.64,1), opacity 0.3s;
-  }
-  .upload-toast.show { transform: translateY(0); opacity: 1; }
-  .upload-toast-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 0.1rem; }
-  .upload-toast-title { font-family: 'Playfair Display', serif; font-size: 0.95rem; color: var(--text); margin-bottom: 0.2rem; }
-  .upload-toast-body { font-size: 0.78rem; color: var(--muted); line-height: 1.6; }
-  .upload-toast-close { position: absolute; top: 0.6rem; right: 0.8rem; font-size: 1rem; cursor: pointer; color: var(--muted); opacity: 0.6; }
-  .upload-toast-close:hover { opacity: 1; }
-
   /* GET INVOLVED */
   .involved-hero { background: linear-gradient(135deg,var(--peach) 0%,var(--cream2) 100%); padding: 5rem 6vw 4rem; text-align: center; border-bottom: 1px solid rgba(212,163,115,0.2); }
   .involved-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 2rem; margin-top: 3rem; }
@@ -229,57 +212,10 @@
   .contact-value a { color:var(--text);text-decoration:none;transition:color 0.2s; }
   .contact-value a:hover { color:var(--tan); }
   .contact-form { display:flex;flex-direction:column;gap:1rem; }
-  .contact-form input, .contact-form textarea {
-    background: var(--ivory); border: 1px solid rgba(212,163,115,0.4);
-    border-radius: 0.65rem; padding: 0.85rem 1.1rem; color: var(--text);
-    font-family:'DM Sans',sans-serif; font-size:0.95rem;outline:none;
-    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
-  }
+  .contact-form input, .contact-form textarea { background: var(--ivory); border: 1px solid rgba(212,163,115,0.4); border-radius: 0.65rem; padding: 0.85rem 1.1rem; color: var(--text); font-family:'DM Sans',sans-serif; font-size:0.95rem;outline:none; transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s; }
   .contact-form input::placeholder, .contact-form textarea::placeholder { color:rgba(196,148,96,0.55); }
   .contact-form input:focus, .contact-form textarea:focus { border-color:var(--tan);box-shadow:0 0 0 3px rgba(212,163,115,0.18);transform:translateY(-1px); }
   .contact-form textarea { resize:vertical;min-height:120px; }
-
-  /* Contact form states */
-  .form-status {
-    padding: 0.9rem 1.1rem; border-radius: 0.65rem; font-size: 0.88rem; line-height: 1.6;
-    display: none; align-items: flex-start; gap: 0.6rem;
-  }
-  .form-status.success { display: flex; background: rgba(204,213,174,0.4); border: 1px solid rgba(204,213,174,0.8); color: #5a7a40; }
-  .form-status.error { display: flex; background: rgba(250,200,180,0.4); border: 1px solid rgba(220,130,100,0.5); color: #8a4030; }
-  .form-status-icon { font-size: 1.1rem; flex-shrink: 0; }
-
-  .btn-sending { opacity: 0.7; cursor: not-allowed !important; }
-  .spinner { display: inline-block; width: 14px; height: 14px; border: 2px solid rgba(255,255,255,0.4); border-top-color: white; border-radius: 50%; animation: spin 0.7s linear infinite; margin-right: 0.5rem; vertical-align: middle; }
-  @keyframes spin { to { transform: rotate(360deg); } }
-
-  /* NEWSLETTER */
-  .newsletter-strip {
-    background: linear-gradient(135deg, var(--tan) 0%, var(--warm) 100%);
-    padding: 3.5rem 6vw; text-align: center;
-  }
-  .newsletter-strip .section-label { color: rgba(254,250,224,0.75); }
-  .newsletter-strip .section-title { color: var(--ivory); margin-bottom: 0.6rem; }
-  .newsletter-strip .section-title em { color: rgba(254,250,224,0.85); font-style: italic; }
-  .newsletter-sub { color: rgba(254,250,224,0.85); font-size: 0.95rem; line-height: 1.8; max-width: 500px; margin: 0 auto 2rem; }
-  .newsletter-form { display: flex; gap: 0.7rem; max-width: 480px; margin: 0 auto; flex-wrap: wrap; justify-content: center; }
-  .newsletter-form input {
-    flex: 1; min-width: 220px; padding: 0.85rem 1.2rem;
-    border-radius: 3rem; border: none; outline: none;
-    background: rgba(254,250,224,0.95); color: var(--text);
-    font-family: 'DM Sans', sans-serif; font-size: 0.95rem;
-    transition: box-shadow 0.2s, transform 0.2s;
-  }
-  .newsletter-form input::placeholder { color: rgba(160,128,80,0.6); }
-  .newsletter-form input:focus { box-shadow: 0 0 0 3px rgba(254,250,224,0.4); transform: translateY(-1px); }
-  .newsletter-form button {
-    padding: 0.85rem 1.8rem; border-radius: 3rem; border: 2px solid var(--ivory);
-    background: transparent; color: var(--ivory); font-family: 'DM Sans', sans-serif;
-    font-size: 0.9rem; font-weight: 500; cursor: pointer;
-    transition: background 0.2s, color 0.2s, transform 0.2s;
-  }
-  .newsletter-form button:hover { background: var(--ivory); color: var(--warm); transform: translateY(-2px); }
-  .newsletter-form button:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
-  .newsletter-status { margin-top: 1rem; font-size: 0.85rem; color: rgba(254,250,224,0.9); min-height: 1.4rem; }
 
   /* FOOTER */
   footer { background: var(--cream2); border-top: 1px solid rgba(212,163,115,0.4); padding: 0; }
@@ -352,10 +288,10 @@
     <div class="section-label reveal">Our Impact</div>
     <div class="section-title reveal d1">Every Number Is a <em>Life Touched</em></div>
     <div class="home-stats-grid">
-      <div class="stat-card reveal d1"><div class="stat-num" data-target="12400" data-suffix="+">0</div><div class="stat-label">Lbs of Food Collected</div></div>
-      <div class="stat-card reveal d2"><div class="stat-num" data-target="850" data-suffix="+">0</div><div class="stat-label">Families Served</div></div>
-      <div class="stat-card reveal d3"><div class="stat-num" data-target="30" data-suffix="+">0</div><div class="stat-label">Community Partners</div></div>
-      <div class="stat-card reveal d4"><div class="stat-num" data-target="100" data-suffix="%">0</div><div class="stat-label">Community-Led</div></div>
+      <div class="stat-card reveal d1"><div class="stat-num" style="font-size:1.4rem;letter-spacing:0.06em;">Launching</div><div class="stat-label">Lbs of Food Collected</div><div style="font-size:0.72rem;color:var(--tan);margin-top:0.4rem;font-style:italic;">Metrics updating soon</div></div>
+      <div class="stat-card reveal d2"><div class="stat-num" style="font-size:1.4rem;letter-spacing:0.06em;">Launching</div><div class="stat-label">Families Served</div><div style="font-size:0.72rem;color:var(--tan);margin-top:0.4rem;font-style:italic;">Metrics updating soon</div></div>
+      <div class="stat-card reveal d3"><div class="stat-num" style="font-size:1.4rem;letter-spacing:0.06em;">Launching</div><div class="stat-label">Community Partners</div><div style="font-size:0.72rem;color:var(--tan);margin-top:0.4rem;font-style:italic;">Metrics updating soon</div></div>
+      <div class="stat-card reveal d4"><div class="stat-num" style="font-size:1.4rem;letter-spacing:0.06em;">100%</div><div class="stat-label">Community-Led</div><div style="font-size:0.72rem;color:var(--tan);margin-top:0.4rem;font-style:italic;">Always &amp; forever</div></div>
     </div>
   </div>
 
@@ -399,6 +335,7 @@
     <div class="divider reveal d2"></div>
     <p class="section-body reveal d2">Our team brings together expertise in leadership, human resources, communications, and engineering — united by a shared commitment to Houston's most vulnerable communities.</p>
     <div class="team-grid">
+
       <div class="team-card reveal d1">
         <div class="team-avatar">CW</div>
         <div class="team-name">Ceondra Washington</div>
@@ -409,6 +346,7 @@
           ceondra@clayscornerhou.org
         </a>
       </div>
+
       <div class="team-card reveal d2">
         <div class="team-avatar">SS</div>
         <div class="team-name">Somber Spears</div>
@@ -419,6 +357,7 @@
           somber@clayscornerhou.org
         </a>
       </div>
+
       <div class="team-card reveal d3">
         <div class="team-avatar">JK</div>
         <div class="team-name">Jereldine Korfeh</div>
@@ -429,6 +368,7 @@
           jereldine@clayscornerhou.org
         </a>
       </div>
+
       <div class="team-card reveal d1">
         <div class="team-avatar">EG</div>
         <div class="team-name">Erica Guery</div>
@@ -439,6 +379,7 @@
           erica@clayscornerhou.org
         </a>
       </div>
+
     </div>
   </div>
 </div>
@@ -471,7 +412,7 @@
   </div>
   <div class="section-pad">
     <div class="events-grid">
-      <div class="event-card reveal d1"><span class="event-badge">Monthly Drive</span><div class="event-date">June 7, 2025 &nbsp;·&nbsp; 10:00 AM – 2:00 PM</div><div class="event-title">Monthly Food Distribution Drive</div><div class="event-detail">Our signature monthly event, open to all Houston-area families. Volunteers are essential — sign up via our contact page.</div></div>
+      <div class="event-card reveal d1"><span class="event-badge">Juneteenth</span><div class="event-date">June 19, 2025 &nbsp;·&nbsp; 11:00 AM – 3:00 PM</div><div class="event-title">Juneteenth Pop-Up Food Box Event</div><div class="event-detail">Celebrate freedom and community with us. Clay's Corner will be distributing curated food boxes in honor of Juneteenth — because liberation includes food security. All Houston families welcome.</div></div>
       <div class="event-card reveal d2"><span class="event-badge">Resource Fair</span><div class="event-date">June 21, 2025 &nbsp;·&nbsp; 9:00 AM – 12:00 PM</div><div class="event-title">Community Resource Fair &amp; Wellness Day</div><div class="event-detail">Housing assistance, employment services, health screenings and more — all in one place, at no cost to attendees.</div></div>
       <div class="event-card reveal d3"><span class="event-badge">Holiday</span><div class="event-date">July 4, 2025 &nbsp;·&nbsp; All Day</div><div class="event-title">Independence Holiday Food Box</div><div class="event-detail">Curated holiday food boxes for families across Houston. Non-perishable donations accepted in advance.</div></div>
       <div class="event-card reveal d1"><span class="event-badge">Volunteer</span><div class="event-date">July 12, 2025 &nbsp;·&nbsp; 9:00 AM – 1:00 PM</div><div class="event-title">Volunteer Orientation &amp; Training Day</div><div class="event-detail">New volunteers are welcome! Learn how Clay's Corner operates, meet the team, and get assigned to your first opportunity.</div></div>
@@ -526,15 +467,6 @@
   <img class="lightbox-img" id="lightboxImg" src="" alt="">
 </div>
 
-<div class="upload-toast" id="uploadToast">
-  <span class="upload-toast-close" onclick="closeToast()">✕</span>
-  <div class="upload-toast-icon" id="toastIcon">📸</div>
-  <div>
-    <div class="upload-toast-title" id="toastTitle">Photo received!</div>
-    <div class="upload-toast-body" id="toastBody">Your photo is showing below. It will be added to our official gallery upon approval by our team.</div>
-  </div>
-</div>
-
 <!-- GET INVOLVED -->
 <div class="page" id="page-involved">
   <div class="involved-hero">
@@ -548,7 +480,7 @@
       <div class="involved-card reveal d2"><span class="involved-icon">🙌🏽</span><div class="involved-title">Volunteer</div><div class="involved-desc">Our volunteers are the backbone of Clay's Corner. From distribution days to event support, there are meaningful opportunities for individuals, families, and corporate groups.</div><a href="#" onclick="showPage('contact')" class="btn btn-primary">Sign Up to Volunteer</a></div>
       <div class="involved-card reveal d3"><span class="involved-icon">🏢</span><div class="involved-title">Corporate Partnership</div><div class="involved-desc">Partner with Clay's Corner to amplify your company's community impact. We offer tailored partnership opportunities including food drives, sponsorships, and team volunteer days.</div><a href="#" onclick="showPage('contact')" class="btn btn-primary">Become a Partner</a></div>
       <div class="involved-card reveal d1"><span class="involved-icon">📦</span><div class="involved-title">Donate Food</div><div class="involved-desc">Non-perishable food donations are always welcome. Canned goods, grains, proteins, and pantry staples have an immediate impact on the families we serve.</div><a href="#" onclick="showPage('contact')" class="btn btn-outline">Learn How</a></div>
-      <div class="involved-card reveal d2"><span class="involved-icon">📣</span><div class="involved-title">Spread the Word</div><div class="involved-desc">Follow us on social media, share our events, and help us reach more Houston families who need support. Awareness is one of the most powerful tools we have.</div><a href="https://www.instagram.com/clayscornerhou" target="_blank" class="btn btn-outline">Follow @clayscornerhou</a></div>
+      <div class="involved-card reveal d2"><span class="involved-icon">📣</span><div class="involved-title">Spread the Word</div><div class="involved-desc">Follow us on social media, share our events, and help us reach more Houston families who need support. Awareness is one of the most powerful tools we have.</div><a href="https://www.instagram.com/cornerclays?igsh=MWYwbjIyeGlicjVoaA==" target="_blank" class="btn btn-outline">Follow @clayscornerhou</a></div>
       <div class="involved-card reveal d3"><span class="involved-icon">📋</span><div class="involved-title">Join Our Board</div><div class="involved-desc">We are growing and looking for dedicated community leaders, professionals, and advocates to help guide Clay's Corner into its next chapter. Inquire to learn more.</div><a href="#" onclick="showPage('contact')" class="btn btn-outline">Inquire Now</a></div>
     </div>
   </div>
@@ -565,47 +497,21 @@
     <div class="reveal d1">
       <div class="contact-item"><div class="contact-label">Location</div><div class="contact-value">Houston, Texas</div></div>
       <div class="contact-item"><div class="contact-label">General Email</div><div class="contact-value"><a href="mailto:info@clayscornerhou.org">info@clayscornerhou.org</a></div></div>
-      <div class="contact-item"><div class="contact-label">Instagram</div><div class="contact-value"><a href="https://www.instagram.com/clayscornerhou" target="_blank">@clayscornerhou</a></div></div>
-      <div class="contact-item"><div class="contact-label">Facebook</div><div class="contact-value"><a href="https://www.facebook.com/search/top?q=Clay%27s%20Corner" target="_blank">Clay's Corner</a></div></div>
+      <div class="contact-item"><div class="contact-label">Instagram</div><div class="contact-value"><a href="https://www.instagram.com/cornerclays?igsh=MWYwbjIyeGlicjVoaA==" target="_blank">@clayscornerhou</a></div></div>
+      <div class="contact-item"><div class="contact-label">Facebook</div><div class="contact-value"><a href="https://m.facebook.com/profile.php?id=61590111432160" target="_blank">Clay's Corner</a></div></div>
       <br>
       <p style="font-size:0.9rem;color:var(--muted);line-height:1.8;max-width:360px;">We welcome families in need, potential volunteers, donors, partners, and media inquiries. No question is too small — we are here for you.</p>
     </div>
     <div class="reveal d2">
-      <div class="contact-form" id="contactForm">
-        <input type="text" id="cf-name" placeholder="Your Full Name" required>
-        <input type="email" id="cf-email" placeholder="Email Address" required>
-        <input type="text" id="cf-subject" placeholder="Subject — Donate / Volunteer / Partner / Family Services / Other">
-        <textarea id="cf-message" placeholder="Your message..." style="min-height:130px;"></textarea>
-        <div class="form-status" id="formSuccess">
-          <span class="form-status-icon">🤎</span>
-          <div>
-            <strong style="display:block;margin-bottom:0.2rem;">Message received!</strong>
-            Thank you for reaching out to Clay's Corner. Our team will be in touch with you shortly.
-          </div>
-        </div>
-        <div class="form-status" id="formError">
-          <span class="form-status-icon">⚠️</span>
-          <div>
-            <strong style="display:block;margin-bottom:0.2rem;">Something went wrong.</strong>
-            Please try again or email us directly at <a href="mailto:info@clayscornerhou.org" style="color:inherit;font-weight:500;">info@clayscornerhou.org</a>.
-          </div>
-        </div>
-        <button class="btn btn-primary" id="submitBtn" style="border:none;cursor:pointer;" onclick="submitContactForm()">Send Message</button>
+      <div class="contact-form">
+        <input type="text" placeholder="Your Full Name">
+        <input type="email" placeholder="Email Address">
+        <input type="text" placeholder="Subject — Donate / Volunteer / Partner / Family Services / Other">
+        <textarea placeholder="Your message..."></textarea>
+        <button class="btn btn-primary" style="border:none;cursor:pointer;" onclick="alert('Thank you for reaching out! We will be in touch with you shortly.')">Send Message</button>
       </div>
     </div>
   </div>
-</div>
-
-<!-- NEWSLETTER STRIP -->
-<div class="newsletter-strip" id="newsletterStrip">
-  <div class="section-label">Stay Connected</div>
-  <h2 class="section-title">Join Our <em>Newsletter</em></h2>
-  <p class="newsletter-sub">Get updates on upcoming events, food drives, and ways to support Houston families — delivered straight to your inbox.</p>
-  <div class="newsletter-form">
-    <input type="email" id="nl-email" placeholder="Your email address">
-    <button id="nl-btn" onclick="subscribeNewsletter()">Subscribe</button>
-  </div>
-  <div class="newsletter-status" id="nl-status"></div>
 </div>
 
 <!-- FOOTER -->
@@ -617,11 +523,11 @@
     </p>
   </div>
   <div class="footer-social">
-    <a href="https://www.instagram.com/clayscornerhou" target="_blank" class="social-link">
+    <a href="https://www.instagram.com/cornerclays?igsh=MWYwbjIyeGlicjVoaA==" target="_blank" class="social-link">
       <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
       @clayscornerhou
     </a>
-    <a href="https://www.facebook.com/search/top?q=Clay%27s%20Corner" target="_blank" class="social-link">
+    <a href="https://m.facebook.com/profile.php?id=61590111432160" target="_blank" class="social-link">
       <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
       Clay's Corner
     </a>
@@ -636,8 +542,6 @@
 </footer>
 
 <script>
-  const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzZiBOKsAwQP0M-5NVR7kFTMCrGhccV9ckx_RwpHXJHm1jdBARhdNfCXQsCmPh12fmG/exec";
-
   function showPage(name) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.getElementById('page-' + name).classList.add('active');
@@ -660,7 +564,6 @@
       heroBg.style.transform = `translateY(${window.scrollY * 0.3}px)`;
     }
   }, { passive: true });
-
   let revealObserver;
   function initReveal() {
     if (revealObserver) revealObserver.disconnect();
@@ -676,7 +579,6 @@
       if (!el.classList.contains('visible')) revealObserver.observe(el);
     });
   }
-
   let statsCounted = false;
   function countUp(el) {
     const target = parseInt(el.dataset.target);
@@ -706,63 +608,22 @@
     }, { threshold: 0.3 });
     obs.observe(statsSection);
   }
-
-  let toastTimer;
-  function showToast(icon, title, body) {
-    const toast = document.getElementById('uploadToast');
-    document.getElementById('toastIcon').textContent = icon;
-    document.getElementById('toastTitle').textContent = title;
-    document.getElementById('toastBody').textContent = body;
-    toast.classList.add('show');
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => toast.classList.remove('show'), 6000);
-  }
-  function closeToast() {
-    document.getElementById('uploadToast').classList.remove('show');
-  }
-
-  async function handlePhotoUpload(event) {
+  function handlePhotoUpload(event) {
     const files = Array.from(event.target.files);
     const gallery = document.getElementById('photoGallery');
-    for (const file of files) {
+    files.forEach(file => {
       const reader = new FileReader();
-      reader.onload = async (e) => {
+      reader.onload = (e) => {
         const item = document.createElement('div');
         item.className = 'photo-item reveal visible';
         const src = e.target.result;
-        item.innerHTML = `
-          <img src="${src}" alt="Community photo" onclick="openLightbox(this.src)" style="opacity:0.85;">
-          <div class="photo-caption">
-            📸 Community photo — submitted by our family.
-            <span style="display:block;margin-top:0.3rem;font-size:0.74rem;color:var(--tan);font-style:italic;">
-              This photo will be added to our official gallery upon approval by our team.
-            </span>
-          </div>`;
+        item.innerHTML = `<img src="${src}" alt="Community photo" onclick="openLightbox(this.src)"><div class="photo-caption">📸 Community photo — submitted by our family.</div>`;
         gallery.prepend(item);
-        try {
-          const base64 = src.split(',')[1];
-          const payload = {
-            type: "photo",
-            fileName: file.name || `community-photo-${Date.now()}.jpg`,
-            mimeType: file.type || "image/jpeg",
-            imageData: base64
-          };
-          const res = await fetch(APPS_SCRIPT_URL, { method: "POST", body: JSON.stringify(payload) });
-          const result = await res.json();
-          if (result.status === "ok") {
-            showToast("📸", "Photo received!", "Your photo has been sent to our team for review. It'll appear in the official gallery upon approval.");
-          } else {
-            showToast("📸", "Photo previewed!", "Your photo is showing below. Please also email it to info@clayscornerhou.org.");
-          }
-        } catch {
-          showToast("📸", "Photo previewed!", "Your photo is showing below. Our team will be in touch — you can also email it to info@clayscornerhou.org.");
-        }
       };
       reader.readAsDataURL(file);
-    }
+    });
     event.target.value = '';
   }
-
   function openLightbox(src) {
     document.getElementById('lightboxImg').src = src;
     document.getElementById('lightbox').classList.add('open');
@@ -773,89 +634,6 @@
     document.body.style.overflow = '';
   }
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
-
-  async function submitContactForm() {
-    const name    = document.getElementById('cf-name').value.trim();
-    const email   = document.getElementById('cf-email').value.trim();
-    const subject = document.getElementById('cf-subject').value.trim();
-    const message = document.getElementById('cf-message').value.trim();
-    if (!name || !email || !message) {
-      ['cf-name','cf-email','cf-message'].forEach(id => {
-        const el = document.getElementById(id);
-        if (!el.value.trim()) {
-          el.style.borderColor = 'rgba(220,130,100,0.7)';
-          el.style.boxShadow = '0 0 0 3px rgba(220,130,100,0.15)';
-          el.addEventListener('input', () => { el.style.borderColor = ''; el.style.boxShadow = ''; }, { once: true });
-        }
-      });
-      return;
-    }
-    const btn = document.getElementById('submitBtn');
-    const successEl = document.getElementById('formSuccess');
-    const errorEl = document.getElementById('formError');
-    successEl.style.display = 'none';
-    errorEl.style.display = 'none';
-    btn.classList.add('btn-sending');
-    btn.innerHTML = '<span class="spinner"></span>Sending…';
-    btn.disabled = true;
-    try {
-      const res = await fetch(APPS_SCRIPT_URL, {
-        method: "POST",
-        body: JSON.stringify({ type: "contact", name, email, subject, message })
-      });
-      const result = await res.json();
-      btn.innerHTML = 'Send Message';
-      btn.classList.remove('btn-sending');
-      btn.disabled = false;
-      if (result.status === "ok") {
-        successEl.style.display = 'flex';
-        document.getElementById('cf-name').value = '';
-        document.getElementById('cf-email').value = '';
-        document.getElementById('cf-subject').value = '';
-        document.getElementById('cf-message').value = '';
-      } else {
-        errorEl.style.display = 'flex';
-      }
-    } catch {
-      btn.innerHTML = 'Send Message';
-      btn.classList.remove('btn-sending');
-      btn.disabled = false;
-      errorEl.style.display = 'flex';
-    }
-  }
-
-  async function subscribeNewsletter() {
-    const emailEl = document.getElementById('nl-email');
-    const btn = document.getElementById('nl-btn');
-    const status = document.getElementById('nl-status');
-    const email = emailEl.value.trim();
-    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      emailEl.style.boxShadow = '0 0 0 3px rgba(220,130,100,0.35)';
-      emailEl.addEventListener('input', () => { emailEl.style.boxShadow = ''; }, { once: true });
-      return;
-    }
-    btn.disabled = true;
-    btn.innerHTML = '<span class="spinner" style="border-color:rgba(255,255,255,0.3);border-top-color:white;"></span>';
-    status.textContent = '';
-    try {
-      const res = await fetch(APPS_SCRIPT_URL, { method: "POST", body: JSON.stringify({ type: "newsletter", email }) });
-      const result = await res.json();
-      if (result.status === "ok") {
-        status.textContent = "You're subscribed! Thank you for joining the Clay's Corner community.";
-        btn.innerHTML = '✓ Subscribed';
-        emailEl.value = '';
-      } else {
-        status.textContent = "Something went wrong. Please try again or email us at info@clayscornerhou.org.";
-        btn.disabled = false;
-        btn.innerHTML = 'Subscribe';
-      }
-    } catch {
-      status.textContent = "Something went wrong. Please try again or email us at info@clayscornerhou.org.";
-      btn.disabled = false;
-      btn.innerHTML = 'Subscribe';
-    }
-  }
-
   initReveal();
   initStats();
   document.querySelectorAll('.nav-tabs a, .mobile-menu a').forEach(a => {
